@@ -367,7 +367,7 @@ async function blob_store(this: any, options: any) {
       let accessUrl = '',
         sasToken = ''
 
-      const containerClient = blob_client.getContainerClient(container)
+      const containerClient = await load_container_client(container)
       const blob = containerClient.getBlobClient(filepath)
 
       const now = new Date()
